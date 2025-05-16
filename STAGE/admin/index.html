@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Boxing Club Caennais</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <link rel="stylesheet" href="styles/forms.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Admin BCC</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#dashboard" class="active">Tableau de bord</a></li>
+                <li><a href="#members">Membres</a></li>
+                <li><a href="#schedule">Horaires</a></li>
+                <li><a href="#news">Actualités</a></li>
+                <li><a href="#events">Événements</a></li>
+                <li><a href="#" id="logout">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <section id="dashboard" class="section admin-section">
+            <h2>Tableau de bord</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Membres actifs</h3>
+                    <p class="stat-number">124</p>
+                    <a href="#members" class="admin-link">Gérer les membres</a>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Cours cette semaine</h3>
+                    <p class="stat-number">28</p>
+                    <a href="#schedule" class="admin-link">Gérer les horaires</a>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Événements à venir</h3>
+                    <p class="stat-number">3</p>
+                    <a href="#events" class="admin-link">Gérer les événements</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="members" class="section admin-section">
+            <h2>Gestion des membres</h2>
+            <div class="admin-controls">
+                <button class="admin-button">Ajouter un membre</button>
+                <input type="search" placeholder="Rechercher un membre..." class="admin-search">
+            </div>
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Téléphone</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jean Dupont</td>
+                            <td>jean.dupont@email.com</td>
+                            <td>06 12 34 56 78</td>
+                            <td>Actif</td>
+                            <td>
+                                <button class="action-button edit">Modifier</button>
+                                <button class="action-button delete">Supprimer</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="schedule" class="section admin-section">
+            <h2>Gestion des horaires</h2>
+            <div class="admin-controls">
+                <button class="admin-button">Ajouter un cours</button>
+            </div>
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <h3>Boxe Anglaise</h3>
+                    <ul>
+                        <li>Lundi - 18h00-20h00</li>
+                        <li>Mercredi - 19h00-21h00</li>
+                        <li>Samedi - 10h00-12h00</li>
+                    </ul>
+                    <button class="action-button edit">Modifier</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section admin-section">
+            <h2>Gestion des actualités</h2>
+            <div class="admin-controls">
+                <button class="admin-button">Nouvelle actualité</button>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h3>Titre de l'actualité</h3>
+                    <p>Date de publication: 01/01/2024</p>
+                    <div class="news-actions">
+                        <button class="action-button edit">Modifier</button>
+                        <button class="action-button delete">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="section admin-section">
+            <h2>Gestion des événements</h2>
+            <div class="admin-controls">
+                <button class="admin-button">Nouvel événement</button>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <h3>Compétition régionale</h3>
+                    <p>Date: 15/03/2024</p>
+                    <p>Lieu: Gymnase Municipal</p>
+                    <div class="event-actions">
+                        <button class="action-button edit">Modifier</button>
+                        <button class="action-button delete">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Boxing Club Caennais</h3>
+                <p>Panel d'administration</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Boxing Club Caennais. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/db.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/forms.js"></script>
+    <script>
+        // Fonction pour charger les données initiales
+        const loadInitialData = () => {
+            // Charger les statistiques
+            document.querySelector('#dashboard .stat-number:nth-child(1)').textContent = window.db.get('members').length;
+            document.querySelector('#dashboard .stat-number:nth-child(2)').textContent = window.db.get('schedule').length;
+            document.querySelector('#dashboard .stat-number:nth-child(3)').textContent = window.db.get('events').length;
+
+            // Charger les membres
+            const membersTable = document.querySelector('#members tbody');
+            membersTable.innerHTML = window.db.get('members').map(member => `
+                <tr data-id="${member.id}">
+                    <td>${member.nom}</td>
+                    <td>${member.email}</td>
+                    <td>${member.telephone}</td>
+                    <td>${member.statut}</td>
+                    <td>
+                        <button class="action-button edit">Modifier</button>
+                        <button class="action-button delete">Supprimer</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Charger les horaires
+            const scheduleGrid = document.querySelector('#schedule .schedule-grid');
+            scheduleGrid.innerHTML = window.db.get('schedule').map(schedule => `
+                <div class="schedule-card" data-id="${schedule.id}">
+                    <h3>${schedule.cours}</h3>
+                    <ul>
+                        <li>${schedule.jour} - ${schedule.heureDebut}-${schedule.heureFin}</li>
+                    </ul>
+                    <button class="action-button edit">Modifier</button>
+                </div>
+            `).join('');
+
+            // Charger les événements
+            const eventsGrid = document.querySelector('#events .events-grid');
+            eventsGrid.innerHTML = window.db.get('events').map(event => `
+                <div class="event-card" data-id="${event.id}">
+                    <h3>${event.titre}</h3>
+                    <p>Date: ${event.date}</p>
+                    <p>Lieu: ${event.lieu}</p>
+                    <div class="event-actions">
+                        <button class="action-button edit">Modifier</button>
+                        <button class="action-button delete">Supprimer</button>
+                    </div>
+                </div>
+            `).join('');
+        };
+
+        // Charger les données au chargement de la page
+        document.addEventListener('DOMContentLoaded', loadInitialData);
+
+        // Initialisation des gestionnaires de formulaires
+        document.querySelectorAll('.admin-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.textContent.toLowerCase();
+                if (action.includes('membre')) {
+                    window.adminForms.createForm('member');
+                    document.getElementById('memberModal').style.display = 'block';
+                } else if (action.includes('cours')) {
+                    window.adminForms.createForm('schedule');
+                    document.getElementById('scheduleModal').style.display = 'block';
+                } else if (action.includes('actualité')) {
+                    window.adminForms.createForm('news');
+                    document.getElementById('newsModal').style.display = 'block';
+                } else if (action.includes('événement')) {
+                    window.adminForms.createForm('event');
+                    document.getElementById('eventModal').style.display = 'block';
+                }
+            });
+        });
+
+        // Gestionnaires d'événements pour les actions de modification et suppression
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('action-button')) {
+                const isEdit = e.target.classList.contains('edit');
+                const isDelete = e.target.classList.contains('delete');
+                const item = e.target.closest('[data-id]');
+                const id = parseInt(item.dataset.id);
+
+                if (isDelete) {
+                    if (confirm('Êtes-vous sûr de vouloir supprimer cet élément ?')) {
+                        const section = item.closest('section').id;
+                        window.db.delete(section, id);
+                        item.remove();
+                        loadInitialData(); // Recharger les statistiques
+                    }
+                } else if (isEdit) {
+                    const section = item.closest('section').id;
+                    const data = window.db.getById(section, id);
+                    if (data) {
+                        window.adminForms.createForm(section);
+                        const modal = document.getElementById(`${section}Modal`);
+                        const form = modal.querySelector('form');
+                        
+                        // Pré-remplir le formulaire
+                        Object.keys(data).forEach(key => {
+                            const input = form.querySelector(`[name="${key}"]`);
+                            if (input && key !== 'id') {
+                                input.value = data[key];
+                            }
+                        });
+
+                        modal.style.display = 'block';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

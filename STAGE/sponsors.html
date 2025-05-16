@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxing Club Caennais - Accueil</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/svg+xml" href="images/logo-lion.svg">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Documents/logo.png" alt="Logo Boxing Club Caennais">
+                <h1>Boxing Club Caennais</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" >Accueil</a></li>
+                <li><a href="activites.html">Activités</a></li>
+                <li><a href="evenements.html">Événements</a></li>
+                <li><a href="horaires-tarifs.html">Horaires/Tarifs</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="membres.html">Membres</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+<!--Fin Header-->
+<main>
+    <section id="sponsors" class="section">
+                <h2>Nos Sponsors</h2>
+                <div class="sponsors-grid">
+                    <div class="sponsor-card">
+                        <img src="images/sponsor1.svg" alt="Logo Sponsor 1" class="sponsor-logo">
+                        <h3>Nom du Sponsor</h3>
+                        <p>Description du partenariat et du soutien apporté au club</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="images/sponsor2.svg" alt="Logo Sponsor 2" class="sponsor-logo">
+                        <h3>Nom du Sponsor</h3>
+                        <p>Description du partenariat et du soutien apporté au club</p>
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="images/sponsor3.svg" alt="Logo Sponsor 3" class="sponsor-logo">
+                        <h3>Nom du Sponsor</h3>
+                        <p>Description du partenariat et du soutien apporté au club</p>
+                    </div>
+                </div>
+            </section>
+
+    <style>
+                .sponsors-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 2rem;
+                    padding: 2rem 0;
+                }
+
+                .sponsor-card {
+                    background: white;
+                    padding: 2rem;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    transition: transform 0.3s ease;
+                }
+
+                .sponsor-card:hover {
+                    transform: translateY(-5px);
+                }
+
+                .sponsor-logo {
+                    width: 150px;
+                    height: 150px;
+                    margin-bottom: 1rem;
+                    object-fit: contain;
+                }
+
+                .sponsor-card h3 {
+                    color: var(--primary-color);
+                    margin-bottom: 0.5rem;
+                }
+
+                .sponsor-card p {
+                    color: var(--dark-color);
+                    font-size: 0.9rem;
+                    line-height: 1.5;
+                }
+            </style>
+</main>
+
+
+
+
+
+
+<!--Debut Footer-->
+<footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Boxing Club Caennais</h3>
+                <p>60 av. du Père Charles de Foucauld<br>14000 Caen</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Tél : <a href="tel:0666054712">06 66 05 47 12</a><br>Email : contact@boxingclubcaennais.fr</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/groups/407175913877921/?locale=fr_FR" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/boxingclubcaennais?igsh=MW0ya3MxazFxbG82OQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Boxing Club Caennais - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

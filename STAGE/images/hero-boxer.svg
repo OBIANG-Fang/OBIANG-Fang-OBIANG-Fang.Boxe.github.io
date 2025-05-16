@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="boxerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#780000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c1121f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Silhouette du boxeur -->
+  <path d="M400 150c-20 0-36 16-36 36s16 36 36 36 36-16 36-36-16-36-36-36zm-20 100c-30 10-50 30-50 60v140c0 20 10 40 30 50 20-10 40-20 60-20s40 10 60 20c20-10 30-30 30-50v-140c0-30-20-50-50-60-10 10-20 10-40 10s-30 0-40-10zm-60 220c-20 10-30 30-30 50v30h220v-30c0-20-10-40-30-50-20 10-40 20-60 20s-40-10-60-20z" fill="url(#boxerGradient)"/>
+  <!-- Gants de boxe -->
+  <path d="M280 310c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20zm240 0c-10 0-20 10-20 20s10 20 20 20 20-10 20-20-10-20-20-20z" fill="#c1121f"/>
+</svg>

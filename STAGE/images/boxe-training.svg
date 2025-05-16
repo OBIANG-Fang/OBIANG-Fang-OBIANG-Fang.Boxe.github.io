@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="trainingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#780000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c1121f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Sac de frappe -->
+  <path d="M400 50v50c80 0 150 20 150 100v250c0 80-70 100-150 100s-150-20-150-100v-250c0-80 70-100 150-100z" fill="#2a2a2a"/>
+  <!-- Chaîne -->
+  <path d="M400 50v-30" stroke="#666" stroke-width="10"/>
+  <!-- Boxeur en action -->
+  <path d="M200 250c-20-20-20-40 0-60 20 20 20 40 0 60zm400 0c20-20 20-40 0-60-20 20-20 40 0 60z" fill="url(#trainingGradient)"/>
+  <!-- Gants de boxe -->
+  <circle cx="180" cy="220" r="20" fill="#c1121f"/>
+  <circle cx="620" cy="220" r="20" fill="#c1121f"/>
+</svg>
